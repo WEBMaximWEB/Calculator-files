@@ -133,9 +133,13 @@ namespace Calculator_files
 
             }
             int len = num1.ToString().Length + num2.ToString().Length + 1;
-            int position = i - num2.ToString().Length;
+            int position;
+            if (i - num2.ToString().Length >= 0)
+                position = i - num2.ToString().Length;
+            else
+                position = i;
             text = text.Remove(position, len);
-            return text.Insert(i - num2.ToString().Length, str);
+            return text.Insert(position, str);
         }
 
         static string Check(string str)
