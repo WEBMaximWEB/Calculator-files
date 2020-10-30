@@ -94,7 +94,11 @@ namespace Calculator_files
                 s += digit2[k];
             digit2 = s;
             int num1 = Int32.Parse(digit1);
-            int num2 = Int32.Parse(digit2);
+            int num2;
+            if (digit2 != "")
+                num2 = Int32.Parse(digit2);
+            else
+                num2 = 0;
             return MainComputation(text, num1, num2, count);
         }
 
