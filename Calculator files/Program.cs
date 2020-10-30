@@ -12,7 +12,8 @@ namespace Calculator_files
             string line = "";
             char[] dictionary = {'+', '-', '*', '/', '(', ')'};
             int counter = 0;
-            StreamReader f = new StreamReader("C:/Users/pmaxq/OneDrive/Desktop/Intputsw.WriteLine(.txt");
+            StreamReader f = new StreamReader(
+                                       "C:/Users/pmaxq/OneDrive/Desktop/input.txt");
             while (line == "" && counter < 20)
             {
                 line += f.ReadLine();
@@ -47,11 +48,12 @@ namespace Calculator_files
                 }
             }
             line = Check(line);
-            Console.WriteLine("----->" + line);
+            Console.WriteLine("Готово.");
 
 
-            StreamWriter sw = new StreamWriter("C:\\Output.txt");
+            StreamWriter sw = new StreamWriter("C:\\output.txt");
             sw.WriteLine(line);
+            sw.Close();
 
         }
 
