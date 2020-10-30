@@ -12,7 +12,7 @@ namespace Calculator_files
             string line = "";
             char[] dictionary = {'+', '-', '*', '/', '(', ')'};
             int counter = 0;
-            StreamReader f = new StreamReader("C:/Users/pmaxq/OneDrive/Desktop/TestF.txt");
+            StreamReader f = new StreamReader("C:/Users/pmaxq/OneDrive/Desktop/Intputsw.WriteLine(.txt");
             while (line == "" && counter < 20)
             {
                 line += f.ReadLine();
@@ -48,6 +48,11 @@ namespace Calculator_files
             }
             line = Check(line);
             Console.WriteLine("----->" + line);
+
+
+            StreamWriter sw = new StreamWriter("C:\\Output.txt");
+            sw.WriteLine(line);
+
         }
 
         static string Brackets(string text, char[] xDictionary)
@@ -90,7 +95,6 @@ namespace Calculator_files
 
         static string MainComputation(string text, string digit1, string digit2, int i)
         {
-            Console.WriteLine("попал в main");
             string str = "";
             if (text[i] == '*')
             {
@@ -111,7 +115,6 @@ namespace Calculator_files
             }
             else if (text[i] == '+')
             {
-                Console.WriteLine("Проверка на плюс");
                 int num1 = Int32.Parse(digit1);
                 int num2 = Int32.Parse(digit2);
 
@@ -119,8 +122,6 @@ namespace Calculator_files
             }
             else if (text[i] == '-')
             {
-                Console.WriteLine("Проверка на минус");
-                Console.WriteLine("Это digit1:" + digit1);
                 int num1 = Int32.Parse(digit1);
                 int num2 = Int32.Parse(digit2);
 
@@ -129,12 +130,7 @@ namespace Calculator_files
             Console.WriteLine(text);
             int len = digit1.Length + digit2.Length + 1;
             int position = i - digit2.Length;
-            Console.WriteLine("i=" + i + ", digit2L= " + digit2.Length + "textL=" + text.Length +
-                "len = " + len +  " position = " + position + "digit2 =" + digit2 + 
-                " digit1 = " + digit1 + "текст до удаления:" + text);
             text = text.Remove(position, len);
-            Console.WriteLine("len ===" + len);
-            Console.WriteLine("str + text= " + str + text + "на самом деле" + text.Insert(i - digit2.Length, str));
             return text.Insert(i - digit2.Length, str);
         }
 
@@ -155,7 +151,6 @@ namespace Calculator_files
                         str = Brackets(str, bigDictionary);
                         i = str.Length + 1;
                         flag = true;
-                        Console.WriteLine("*********--->" + str);
                     }
                 }
             }
@@ -168,11 +163,9 @@ namespace Calculator_files
                 {
                     if (smallDictionary.Contains(str[i]))
                     {
-                        Console.WriteLine("до смола--->" + str);
                         str = Brackets(str, smallDictionary);
                         i = str.Length + 1;
                         flag = true;
-                        Console.WriteLine("SmallDict*****->>>" + str);
                     }
                 }
             }
