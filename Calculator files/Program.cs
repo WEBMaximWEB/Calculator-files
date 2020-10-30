@@ -51,7 +51,7 @@ namespace Calculator_files
             Console.WriteLine("Готово.");
 
 
-            StreamWriter sw = new StreamWriter("C:\\output.txt");
+            StreamWriter sw = new StreamWriter("C:/Users/pmaxq/OneDrive/Desktop/output.txt");
             sw.WriteLine(line);
             sw.Close();
 
@@ -69,7 +69,6 @@ namespace Calculator_files
                     while (j < text.Length && Char.IsDigit(text[j]))
                     {
                         digit1 += text[j];
-                        Console.WriteLine("d1=" + digit1);
                         j++;
                     }
                     if (i >= 0)
@@ -77,10 +76,7 @@ namespace Calculator_files
                         j = i - 1;
                         while (j >= 0 && Char.IsDigit(text[j]))
                         {
-                            //if (text[j] == '+' || text[j] == '-')
-                              //  break;
                             digit2 += text[j];
-                            Console.WriteLine("d2=" + digit2);
                             j--;
                         }
                     }
@@ -129,7 +125,6 @@ namespace Calculator_files
 
                 str = (num2 - num1).ToString();
             }
-            Console.WriteLine(text);
             int len = digit1.Length + digit2.Length + 1;
             int position = i - digit2.Length;
             text = text.Remove(position, len);
