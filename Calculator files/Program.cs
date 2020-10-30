@@ -93,7 +93,9 @@ namespace Calculator_files
             for (int k = digit2.Length - 1; k >= 0; k--)
                 s += digit2[k];
             digit2 = s;
-            return MainComputation(text, Int32.Parse(digit1), Int32.Parse(digit2), count);
+            int num1 = Int32.Parse(digit1);
+            int num2 = Int32.Parse(digit2);
+            return MainComputation(text, num1, num2, count);
         }
 
         static string MainComputation(string text, int num1, int num2, int i)
